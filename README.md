@@ -19,6 +19,8 @@ Double-ended queue (Deque) implementation in C99.
 ```c
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
 #include "deque.h"
 
 int main(void)
