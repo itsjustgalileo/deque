@@ -1,5 +1,5 @@
 #ifndef DEQUE_H_
-#define DEQUE_H_ 1
+#define DEQUE_H_
 
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
