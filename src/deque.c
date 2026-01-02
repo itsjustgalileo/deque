@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <assert.h>
 
 #include "deque.h"
 
@@ -57,7 +56,9 @@ static struct DequeNode *deque_node_new(void *data)
 
 bool deque_push_back(Deque *deque, void *data)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return false;
+    }
     struct DequeNode *node = deque_node_new(data);
     if (NULL == node) {
         return false;
@@ -78,7 +79,9 @@ bool deque_push_back(Deque *deque, void *data)
 
 bool deque_push_front(Deque *deque, void *data)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return false;
+    }
 
     struct DequeNode *node = deque_node_new(data);
     if (NULL == node) {
@@ -100,7 +103,9 @@ bool deque_push_front(Deque *deque, void *data)
 
 bool deque_pop_back(Deque *deque, void **out)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return false;
+    }
 
     if (deque->count == 0) {
         return false;
@@ -127,7 +132,9 @@ bool deque_pop_back(Deque *deque, void **out)
 
 bool deque_pop_front(Deque *deque, void **out)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return false;
+    }
 
     if (deque->count == 0) {
         return false;
@@ -154,7 +161,9 @@ bool deque_pop_front(Deque *deque, void **out)
 
 bool deque_remove(Deque *deque, void *elem)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return false;
+    }
 
     struct DequeNode *node = deque->head;
 
@@ -186,7 +195,9 @@ bool deque_remove(Deque *deque, void *elem)
 
 void deque_clear(Deque *deque)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return;
+    }
 
     struct DequeNode *node = deque->head;
 
@@ -221,12 +232,16 @@ void *deque_tail(const Deque *deque)
 
 size_t deque_size(const Deque *deque)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return false;
+    }
     return deque->count;
 }
 
 bool deque_empty(const Deque *deque)
 {
-    assert(deque != NULL);
+    if (NULL == deque) {
+        return false;
+    }
     return (deque->count == 0);
 }
